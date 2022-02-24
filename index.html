@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+	
+	html, body {
+		height: 100%;
+	}
+
+	.button{
+		width:100%;
+		height:40%;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 60px;
+	}
+	
+	.footerButton{
+		vertical-align: middle;
+		width:20%;
+		height:40%;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 60px;
+	}
+	
+	.player1Off{
+		background-color: gray;
+		border: none;
+		color: white;
+		vertical-align: text-top;
+	}	
+	.player2Off{
+		background-color: gray;
+		border: none;
+		color: white;
+		vertical-align: text-bottom;
+	}
+	
+	footer{
+		width:100%;
+		height:20%;	
+		text-decoration: none;
+		display: inline-block;
+		font-size: 30px;
+		background-color: black;
+		border: none;
+		color: white;
+		
+	}
+	
+	
+</style>
+
+</head>
+
+<body align = "center">
+
+	<button id = "player1" onclick = "OnClick1()" class="button player1Off"></button>
+	
+	<footer> 
+	<button class = "footerButton" id = "reset" onclick = "reset() ">Reset</button>
+	<button class = "footerButton" id = "cutButton1" onclick = "cutButton1() ">Cut1</button>
+	<button class = "footerButton" id = "cutButton2" onclick = "cutButton2() ">Cut2</button>
+	<button class = "footerButton" id = "pause" onclick = "pause() ">Pause</button>
+	</footer>
+	
+	<button id = "player2" onclick = "OnClick2() " class="button player2Off"></button>
+
+
+<script>
+	var timeOut = false;
+
+	const button1 = document.getElementById("player1");
+	var button1TextNum = 600;
+	//var button1Text = button1TextNum.toString();
+	var button1TextFormatted = ((button1TextNum/60)|0) + ": " + (button1TextNum%60).toFixed(2);
+	var player1Active = false;
+	button1.innerHTML = button1TextFormatted;
+
+	setInterval(function() {
+	if(button1TextNum <= 0 || button2TextNum <=0){
+		timeOut = true;
+		
+		if(button1TextNum<=0){
+			button1TextNum = 0;
+			button1TextFormatted = ((button1TextNum/60)|0) + ": " + (button1TextNum%60).toFixed(2);
+			button1.innerHTML = button1TextFormatted;
+		}
+		
+		if(button2TextNum<=0){
+			button2TextNum = 0;
+			button2TextFormatted = ((button2TextNum/60)|0) + ": " + (button2TextNum%60).toFixed(2);
+			button2.innerHTML = button2TextFormatted;
+		}
+	}
+	
+	}, 1);
+
+	setInterval(function() {
+	if(player1Active && timeOut == false){
+	button1TextNum -= .01;
+	button1TextFormatted = ((button1TextNum/60)|0) + ": " + (button1TextNum%60).toFixed(2);
+	button1.innerHTML = button1TextFormatted;
+	}
+	
+	}, 10);
+	
+	function OnClick1(){
+		if(player1Active ==false && player2Active ==false){
+			player2Active = true;
+		}else if (player2Active == false){
+			player1Active = !player1Active;
+			player2Active = !player2Active;
+		}
+	}
+</script>
+
+<script>
+	const button2 = document.getElementById("player2");
+	var button2TextNum = 600;
+	//var button1Text = button1TextNum.toString();
+	var button2TextFormatted = ((button2TextNum/60)|0) + ": " + (button2TextNum%60).toFixed(2);
+	var player2Active = false;
+	button2.innerHTML = button2TextFormatted;
+
+	setInterval(function() {
+	if(player2Active && timeOut == false){
+	button2TextNum -= .01;
+	button2TextFormatted = ((button2TextNum/60)|0) + ": " + (button2TextNum%60).toFixed(2);
+	button2.innerHTML = button2TextFormatted;
+	}
+	
+	}, 10);
+	
+	function OnClick2(){
+		if(player1Active ==false && player2Active ==false){
+			player1Active = true;
+		}else if (player1Active == false){
+			player1Active = !player1Active;
+			player2Active = !player2Active;
+		}
+	}
+</script>
+
+<script>
+
+setInterval(function() {
+	if(button1TextNum == 0){
+		document.getElementById("player1").style.backgroundColor = "Red";
+	}else if(button2TextNum == 0){
+		document.getElementById("player2").style.backgroundColor = "Red";
+	}else if(player1Active == true && player2Active == false){
+		document.getElementById("player1").style.backgroundColor = "Coral";
+		document.getElementById("player2").style.backgroundColor = "Gray";
+	}else if(player1Active == false && player2Active == true){
+		document.getElementById("player1").style.backgroundColor = "Gray";
+		document.getElementById("player2").style.backgroundColor = "Coral";
+	}else{
+		document.getElementById("player1").style.backgroundColor = "Gray";
+		document.getElementById("player2").style.backgroundColor = "Gray";
+	}
+}, 10);	
+
+function reset(){
+	button1TextNum =600;
+	button2TextNum =600;
+
+	button1TextFormatted = ((button1TextNum/60)|0) + ": " + (button1TextNum%60).toFixed(2);
+	player1Active = false;
+	button1.innerHTML = button1TextFormatted;
+
+	button2TextFormatted = ((button2TextNum/60)|0) + ": " + (button2TextNum%60).toFixed(2);
+	player2Active = false;
+	button2.innerHTML = button2TextFormatted;
+}
+
+function cutButton1(){
+	button1TextNum -=180;
+}
+
+function cutButton2(){
+	button2TextNum -=180;
+}
+function pause(){
+	player1Active = false;
+	player2Active = false;
+}
+</script>
+
+</body>
+</html>
+</html>
