@@ -98,16 +98,16 @@
 		}
 	}
 	
-	}, 1);
+	}, 100);
 
 	setInterval(function() {
 	if(player1Active && timeOut == false){
-	button1TextNum -= .01;
+	button1TextNum -= .1;
 	button1TextFormatted = ((button1TextNum/60)|0) + ": " + (button1TextNum%60).toFixed(2);
 	button1.innerHTML = button1TextFormatted;
 	}
 	
-	}, 10);
+	}, 100);
 	
 	function OnClick1(){
 		if(player1Active ==false && player2Active ==false){
@@ -129,12 +129,12 @@
 
 	setInterval(function() {
 	if(player2Active && timeOut == false){
-	button2TextNum -= .01;
+	button2TextNum -= .1;
 	button2TextFormatted = ((button2TextNum/60)|0) + ": " + (button2TextNum%60).toFixed(2);
 	button2.innerHTML = button2TextFormatted;
 	}
 	
-	}, 10);
+	}, 100);
 	
 	function OnClick2(){
 		if(player1Active ==false && player2Active ==false){
