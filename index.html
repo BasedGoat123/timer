@@ -1,63 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<style>
-	
-	html, body {
-		height: 100%;
-	}
-
-	.button{
-		width:100%;
-		height:40%;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 60px;
-	}
-	
-	.footerButton{
-		vertical-align: middle;
-		width:20%;
-		height:40%;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 60px;
-	}
-	
-	.player1Off{
-		background-color: gray;
-		border: none;
-		color: white;
-		vertical-align: text-top;
-	}	
-	.player2Off{
-		background-color: gray;
-		border: none;
-		color: white;
-		vertical-align: text-bottom;
-	}
-	
-	footer{
-		width:100%;
-		height:20%;	
-		text-decoration: none;
-		display: inline-block;
-		font-size: 30px;
-		background-color: black;
-		border: none;
-		color: white;
-		
-	}
-	
-	
-</style>
-
+    <link rel="stylesheet"type="text/css" href="index.css"/>
 </head>
 
-<body align = "center">
+<body>
 
 	<button id = "player1" onclick = "OnClick1()" class="button player1Off"></button>
 	
@@ -179,11 +126,11 @@ function reset(){
 }
 
 function cutButton1(){
-	button1TextNum -=180;
+	button1TextNum -=300;
 }
 
 function cutButton2(){
-	button2TextNum -=180;
+	button2TextNum -=300;
 }
 function pause(){
 	player1Active = false;

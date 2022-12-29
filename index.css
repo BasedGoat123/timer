@@ -1,0 +1,46 @@
+
+html, body {
+	height: 100%;
+}
+.button{
+	width:100%;
+	height:40%;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 60px;
+}
+
+.footerButton{
+	vertical-align: middle;
+	width:20%;
+	height:40%;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 60px;
+}
+
+.player1Off{
+	background-color: gray;
+	border: none;
+	color: white;
+	vertical-align: text-top;
+}	
+.player2Off{
+	background-color: gray;
+	border: none;
+	color: white;
+	vertical-align: text-bottom;
+}
+
+footer{
+	width:100%;
+	height:20%;	
+	text-decoration: none;
+	display: inline-block;
+	font-size: 30px;
+	background-color: black;
+	border: none;
+	color: white;
+}
